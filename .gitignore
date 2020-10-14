@@ -1,0 +1,10 @@
+# IDE settings
+.vscode/
+.idea/
+
+# python cache
+__pycache__/
+
+# testing
+private/
+main.py
