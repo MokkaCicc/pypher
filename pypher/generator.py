@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 from functools import reduce
 
 from pypher import utils
 
 
 class Generator(ABC):
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def __init__(cls):
         pass
 
 
+    # TODO: simplify method and prevent to long generation of key
     @classmethod
     def alpha_keys(cls, length: int, debug=False) -> list:
         keys = list()
