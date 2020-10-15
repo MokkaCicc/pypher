@@ -168,8 +168,8 @@ class Analyser(ABC):
 
 
     @classmethod
-    def keep_brackets(cls, message: str) -> str:
-        for char in message:
-            if char not in utils.BRACKETS:
-                message = message.replace(char, "")
-        return message
+    def has_spaces(cls, message: str) -> bool:
+        for space in utils.SPACES:
+            if space in message:
+                return True
+        return False
