@@ -6,7 +6,6 @@ from random import random
 from pypher import utils
 
 
-# TODO: 
 class Converter(ABC):
     """Tool to easily transform and manipulate strings.
     This class is abstract and cannot be instanciate, all methods are class methods.
