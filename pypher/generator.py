@@ -7,34 +7,40 @@ from pypher import utils
 
 
 class Generator(ABC):
+    """Tool to generate a lot of stuffs.
+    This class is abstract and cannot be instanciate, all methods are class methods.
+    """
     @classmethod
     @abstractmethod
     def __init__(cls):
         pass
 
-
     @classmethod
-    def shifted_alpha(cls, shifts: int, reverse: bool = False, lower: bool = True) -> str:
+    def shifted_alpha(cls, shifts: int, reverse: bool = False, upper: bool = False) -> str:
         """Generate a shifted alpabet, in lower or upper case.
 
         Args:
             shifts (int): the number of shifts.
-            reverse (bool, optionnal): the direction of the shift. Default to False.
-            lower (bool, optional): if the alphabet need to be lowercase. Defaults to True.
+            reverse (bool, optionnal): the direction of the shift. Default to False (right to left).
+            upper (bool, optional): if the alphabet need to be uppercase. Defaults to False.
 
         Returns:
             str: the shifted alphabet.
         """
 
         # negate shifts too long
-        shifts %= len(utils.LOWER_ALPHA)
-        if lower:
-            alpha = utils.LOWER_ALPHA[shifts:] + utils.LOWER_ALPHA[:shifts]
+        shifts %= 26
+        if upper:
+            alpha = utils.UPPER_ALPHA
         else:
-            alpha = utils.UPPER_ALPHA[shifts:] + utils.UPPER_ALPHA[:shifts]
+            alpha = utils.LOWER_ALPHA
 
-        return alpha
+        if reverse:
+            shifted_alpha = alpha[-shifts:] + alpha[:-shifts]
+        else:
+            shifted_alpha = alpha[shifts:] + alpha[:shifts]
 
+        return shifted_alpha
 
     # TODO: simplify method and prevent to long generation of key. (maybe separate into two methods)
     @classmethod
