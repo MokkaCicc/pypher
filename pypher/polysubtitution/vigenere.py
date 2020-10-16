@@ -63,7 +63,7 @@ class Vigenere(ABC):
 
 
     @classmethod
-    def estimate_key_chars(cls, crypted_message: str, key_length: int) -> dict:
+    def estimate_key_chars(cls, crypted_message: str, key_length: int) -> dict[int, dict[str, int]]:
         crypted_message = Converter.normalize(crypted_message)
         key_chars = dict()
 

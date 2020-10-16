@@ -11,9 +11,17 @@ class Caesar(ABC):
     def __init__(cls):
         pass
 
-    # TODO: move generator of shifted alpha in the generator class
+    # TODO: use Generator.shift_alpha().
     @classmethod
-    def encrypt(cls, message: str, key: int, keep_spaces=True, keep_capitals=True, keep_specials=False, reverse=False, debug=False) -> str:
+    def encrypt(cls,
+        message: str,
+        key: int,
+        keep_spaces: bool = True,
+        keep_capitals: bool = True,
+        keep_specials: bool = False,
+        reverse:bool = False,
+        debug: bool = False
+    ) -> str:
         lower_alpha = list(utils.LOWER_ALPHA)
         upper_alpha = list(utils.UPPER_ALPHA)
         shift_lower_alpha = collections.deque(lower_alpha)
@@ -71,7 +79,7 @@ class Caesar(ABC):
 
     # TODO: implement bruteforce
     @classmethod
-    def bruteforce(cls, crypted_message: str) -> dict:
+    def bruteforce(cls, crypted_message: str) -> dict[int, str]:
         pass
 
         # dict: {

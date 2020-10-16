@@ -93,9 +93,8 @@ class Analyser(ABC):
 
         return coincidence
 
-    # TODO; move to converter? and process as a str and not a list.
     @classmethod
-    def cycle_chars(cls, message: str, step: int, begin:int = 0) -> list[str]:
+    def cycle_chars(cls, message: str, step: int, begin: int = 0) -> list[str]:
         """Return all chars with a position multiple of step.
 
         Args:
