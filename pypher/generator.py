@@ -43,6 +43,7 @@ class Generator(ABC):
         return shifted_alpha
 
     # TODO: simplify method and prevent to long generation of key. (maybe separate into two methods)
+    # TODO: need testing
     @classmethod
     def alpha_keys(cls, length: int) -> list[str]:
         """Generate all possibles keys for a certain lenght. Be careful a lenght too big can make some time to process.
