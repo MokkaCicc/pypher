@@ -11,8 +11,6 @@ class Analyser(ABC):
     """Tools to analyse some message.
     This class is abstract and cannot be instanciate, all methods are class methods.
     """
-    # TODO: Move to a separate file?
-    OCURS_FR = "EAISNRTOLUDCMPGBVHFQYXJKWZ"
 
     @classmethod
     @abstractmethod
@@ -20,7 +18,7 @@ class Analyser(ABC):
         pass
 
     @classmethod
-    def ocurs_chars(cls, message: str, percent: bool = False, reverse: bool = False) -> dict[str, int]:
+    def ocurs_chars(cls, message: str, percent: bool = False, reverse: bool = False) -> dict[str, float]:
         """Count all ocurences of char in the message.
         This class normalize the message before process it.
 
@@ -34,7 +32,7 @@ class Analyser(ABC):
         """
         chars = dict()
         for letter in utils.UPPER_ALPHA:
-            chars[letter] = 0
+            chars[letter] = 0.0
         message = Converter.normalize(message)
 
         for char in message:
@@ -45,11 +43,11 @@ class Analyser(ABC):
 
         if percent:
             len_msg = len(message)
-            chars = {key: value*len_msg/100 for key, value in chars.items()}
+            chars = {key: value*100/len_msg for key, value in chars.items()}
 
         return chars
 
-    # TODO: implemente methods
+    # TODO: implemente methods and tests
     @classmethod
     def ocurs_bigrammes(cls, message: str) -> dict[str, int]:
         pass
