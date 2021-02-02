@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
 LOWER_ALPHA = "abcdefghijklmnopqrstuvwxyz"
-UPPER_ALPHA = LOWER_ALPHA.upper()
-ALPHA = LOWER_ALPHA + UPPER_ALPHA
+UPPER_ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 LOWER_ACCENTS = "âêîôûäëïöüàùèéç"
-UPPER_ACCENTS = LOWER_ACCENTS.upper()
-ACCENTS = LOWER_ACCENTS + UPPER_ACCENTS
+UPPER_ACCENTS = "ÂÊÎÔÛÄËÏÖÜÀÙÈÉÇ"
+ACCENTS = "âêîôûäëïöüàùèéçÂÊÎÔÛÄËÏÖÜÀÙÈÉÇ"
 
 LOWER_ACCENTS_TRANS = str.maketrans(LOWER_ACCENTS, "aeiouaeiouaueec")
 UPPER_ACCENTS_TRANS = str.maketrans(UPPER_ACCENTS, "AEIOUAEIOUAUEEC")
