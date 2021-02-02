@@ -7,4 +7,4 @@ __pycache__/
 
 # testing
 private/
-main.py
+test.py
